@@ -9,7 +9,15 @@ const rl = readline.createInterface({
 
 rl.question('Filename: ', (answer) => {
     fs.readFile(answer, 'ascii', (err, data) => {
-        console.log(data.toUpperCase());
+        // if (err) throw err;
+        // console.log(data.toUpperCase());
+        // err ? console.error(err) : console.log(data);
+        if (err) {
+            console.error(err);
+        }
+        else {
+            console.log(data.toUpperCase());
+        }
     });
     rl.close();
   });
