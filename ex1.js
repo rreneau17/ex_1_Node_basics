@@ -1,9 +1,19 @@
 const http = require('http');
 const fs = require('fs');
+const readline = require('readline');
 
-let file1 = 'file1.txt';
-let readit = fs.readFile(file1, (err, data) => {
-    console.log('Filename: ' + file1);
-}); 
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+rl.question('Filename: ', (answer) => {
+    fs.readFile(answer, 'ascii', (err, data) => {
+        console.log(data.toUpperCase());
+    });
+    rl.close();
+  });
+
+
 
 
